@@ -81,7 +81,7 @@
           },
           (decodedText, decodedResult) => {
             if (decodedText.startsWith('https://' + window.location.hostname)) {
-              window.location.href(decodedText);
+              window.location.href = decodedText;
             }
           },
           (errorMessage) => {
