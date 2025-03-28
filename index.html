@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hitster Vladi Edition</title>
     <link rel="stylesheet" media="all" href="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <script src="script.js"></script>
 </head>
 <body>
     <div id="player-wrapper" style="visibility: hidden !important">
         <iframe id="spotify-player" width="0" height="0" frameborder="0"></iframe>
+    </div>
+
+    <div id="reader-wrapper" style="display: none">
+        <div id="reader" style="width: 300px; height: 500px;"></div>
     </div>
 
     <div id="message">Loading...</div>
@@ -24,5 +30,7 @@
             <div class="puntero"></div>
         </button>
     </div>
+
+    <button id="scan-code" style="font-size:24px"><i class="fa fa-qrcode"></i></button>
 </body>
 </html>

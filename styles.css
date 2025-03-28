@@ -11,6 +11,29 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 20px;
 }
+
+#scan-code {
+  font-size: 24px;
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  background: #f4471f;
+  border: 0;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  color: #fff;
+}
+
+#reader-wrapper {
+  position: absolute !important;
+  z-index: 1;
+}
+#reader {
+  display: flex;
+}
+
+/* Play button */
 .botón {
   align-items: center;
   display: flex;
@@ -330,3 +353,4 @@ body {
     56.87342% 42.46916%
   );
 }
+/* End Play button */

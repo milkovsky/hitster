@@ -63,6 +63,45 @@
       });
     };
 
+    // QR-Code reader.
+    let html5QrCode = null; 
+    document.getElementById('scan-code').addEventListener("click", function() {
+      let readerWrapper = document.getElementById('reader-wrapper');
+      if (readerWrapper.style.display === 'none') {
+        readerWrapper.style.display = 'block';
+
+        html5QrCode = new Html5Qrcode("reader");
+        html5QrCode.start(
+          {
+            facingMode: "environment" // Uses external camera.
+          },
+          {
+              fps: 10, // Frames per second.
+              qrbox: 250, // Scanning area size.
+          },
+          (decodedText, decodedResult) => {
+            if (decodedText.startsWith(window.location.hostname)) {
+              window.location.href(decodedText);
+            }
+          },
+          (errorMessage) => {
+              // Scanning error.
+              console.log(errorMessage);
+          }
+        ).catch(err => {
+            console.log('Can not connect camera!', err);
+        });
+      }
+       else {
+         if (html5QrCode) {
+          html5QrCode.stop();
+         }
+        readerWrapper.style.display = 'none';
+      }
+    });
+
+    
+
   });
 
 }());
