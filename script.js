@@ -1,6 +1,16 @@
 (function () {
   document.addEventListener("DOMContentLoaded", function() {
-    let songUri = 'spotify:track:0VfXQxbM0doaDw2fMI8Ima?si=ce8dd0d2e33a4344';
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('song-uri')) {
+      document.getElementById('message').textContent = 'No song-uri was found.';
+      return;
+    }
+
+    function convertSpotifyUrlToUri(url) {
+      return url.replace("https://open.spotify.com/", "spotify:").replace(/track\//, 'track:');
+    }
+
+    let songUri = convertSpotifyUrlToUri(params.get('song-uri'));
 
     class HirsterPlayer {
 
@@ -13,9 +23,8 @@
         });
 
         this.play = document.getElementById('play-track');
-        this.pause = document.getElementById('pause-track');
         this.player = document.getElementById('player');
-        this.loading = document.getElementById('loading');
+        this.message = document.getElementById('message');
 
         this.play.addEventListener("click", function() {
           self.playTrack();
@@ -27,25 +36,14 @@
 
       showPlayer = function() {
         this.player.style.display = 'block';
-        this.loading.style.display = 'none';
+        this.message.style.display = 'none';
       }
 
       playTrack = function() {
         if (this.spotifyController) {
-          this.spotifyController.play();
-          this.play.style.display = 'none';
-          this.pause.style.display = 'inline-block';
+          this.spotifyController.togglePlay();
         }
       }
-
-      pauseTrack = function() {
-        if (this.spotifyController) {
-          this.spotifyController.pause();
-          this.play.style.display = 'inline-block';
-          this.pause.style.display = 'none';
-        }
-      }
-
     }
 
     window.onSpotifyIframeApiReady = (IFrameAPI) => {
@@ -53,7 +51,7 @@
       const options = {
       uri: songUri,
     };	
-      if (window.location.search === '?secrets') {	
+      if (params.has('secrets')) {	
         document.getElementById('player-wrapper').style.visibility = 'visible';
       }
       else {

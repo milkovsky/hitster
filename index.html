@@ -10,14 +10,19 @@
 </head>
 <body>
     <div id="player-wrapper" style="visibility: hidden !important">
-        <iframe id="spotify-player"></iframe>
+        <iframe id="spotify-player" width="0" height="0" frameborder="0"></iframe>
     </div>
 
-    <div id="loading">Loading...</div>
+    <div id="message">Loading...</div>
     <div id="player" style="display: none">
-        <button id="play-track" onclick="playTrack()">Play</button>
-        <button id="pause-track" style="display: none" onclick="pauseTrack()">Stop</button>
+        <button id="play-track" class="botón" onclick="this.classList.toggle('active')">
+            <div class="fondo" x="0" y="0" width="200" height="200"></div>
+            <div class="icono" width="200" height="200">
+                <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
+                <div class="parte derecha" x="0" y="0" width="200" height="200" fill="#fff"></div>
+            </div>
+            <div class="puntero"></div>
+        </button>
     </div>
 </body>
 </html>
-
