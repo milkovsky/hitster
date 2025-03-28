@@ -80,7 +80,7 @@
               qrbox: 250, // Scanning area size.
           },
           (decodedText, decodedResult) => {
-            if (decodedText.startsWith(window.location.hostname)) {
+            if (decodedText.startsWith('https://' + window.location.hostname)) {
               window.location.href(decodedText);
             }
           },
