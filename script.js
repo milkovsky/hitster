@@ -80,8 +80,8 @@
               qrbox: 250, // Scanning area size.
           },
           (decodedText, decodedResult) => {
-            if (decodedText.startsWith('https://' + window.location.hostname)) {
-              window.location.href = decodedText;
+            if (decodedText.startsWith('https://open.spotify.com/')) {
+              window.location.href = window.location.pathname + '?song-uri=' + decodedText;
             }
           },
           (errorMessage) => {
