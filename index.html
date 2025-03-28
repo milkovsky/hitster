@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitster Vladi Edition</title>
+    <link rel="stylesheet" media="all" href="styles.css"/>
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="player-wrapper" style="visibility: hidden !important">
+        <iframe id="spotify-player"></iframe>
+    </div>
+
+    <div id="loading">Loading...</div>
+    <div id="player" style="display: none">
+        <button id="play-track" onclick="playTrack()">Play</button>
+        <button id="pause-track" style="display: none" onclick="pauseTrack()">Stop</button>
+    </div>
+</body>
+</html>
+
