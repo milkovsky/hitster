@@ -2,7 +2,7 @@
 
 namespace milkovsky\hitster;
 
-class CsvParser {
+class Songs {
 
     public static function getSongs(): array {
         $songs = [];
@@ -26,5 +26,8 @@ class CsvParser {
         return $songs;
     }
 
+    public static function getSongName(array $song): string {
+        return "{$song['year']} {$song['artist']} - {$song['title']}";
+    }
 
 }

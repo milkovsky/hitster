@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 class QrCodeGenerator {
 
   public static function generate(string $content, $fileName, bool $force = FALSE): bool {
-    $fileName = str_replace(['/', '?'], '', $fileName);
+    $fileName = static::fixFileName($fileName);
     $path = "codes/$fileName.png";
     if (!$force && file_exists($path)) {
         echo "Skipped existiing file '$path'<br>";
@@ -28,6 +28,10 @@ class QrCodeGenerator {
     file_put_contents($path, $response->getBody());
 
     return TRUE;
+  }
+
+  public static function fixFileName(string $fileName): string {
+      return str_replace(['/', '?'], '', $fileName);
   }
 
 }
