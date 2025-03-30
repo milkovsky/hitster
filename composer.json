@@ -1,0 +1,14 @@
+{
+    "name": "milkovsky/hitster",
+    "type": "project",
+    "license": "WTFPL",
+    "autoload": {
+        "psr-4": {
+            "milkovsky\\hitster\\": "generator/src/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "guzzlehttp/guzzle": "^7.9"
+    }
+}
