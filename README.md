@@ -1,3 +1,7 @@
+# App URL
+
+https://milkovsky.github.io/hitster/
+
 # Autoplays Spotify tracks by uri
 
 Get parameters:
