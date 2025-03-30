@@ -4,6 +4,7 @@
     let player;
 
     if (params.has('song-uri')) {
+      document.getElementById('welcome').style.display = 'none';
       document.getElementById('message').textContent = 'Loading player...';
 
       function convertSpotifyUrlToUri(url) {
@@ -71,6 +72,7 @@
     }
     else {
       document.getElementById('message').textContent = 'Start by scanning QR-Code';
+      document.getElementById('welcome').style.display = 'block';
     }
 
     // QR-Code reader.
