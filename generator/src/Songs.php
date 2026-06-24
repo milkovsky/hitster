@@ -8,7 +8,7 @@ class Songs {
         $songs = [];
         $file = 'songs.csv';
         if (($handle = fopen($file, 'r')) !== false) {
-            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+            while (($data = fgetcsv($handle, 1000, ',', '"', '\\')) !== false) {
                 $song = [
                     'year' => $data[0],
                     'artist' => $data[1],

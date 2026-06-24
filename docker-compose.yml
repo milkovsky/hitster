@@ -1,0 +1,17 @@
+services:
+  appserver:
+    build:
+      context: .
+      dockerfile: setup/Dockerfile
+    container_name: hitster-appserver
+    ports:
+      - ${APPSERVER_PORT:-80}:80
+    volumes:
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    env_file:
+      - .env
+    environment:
+      XDEBUG_MODE: develop,debug
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

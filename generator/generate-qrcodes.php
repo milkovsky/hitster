@@ -6,7 +6,10 @@ use milkovsky\hitster\QrCodeGenerator;
 use milkovsky\hitster\Songs;
 use milkovsky\hitster\SpotifyParser;
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable([
+    __DIR__,
+    __DIR__ . DIRECTORY_SEPARATOR . '..',
+]);
 $dotenv->load();
 
 $songs = Songs::getSongs();
